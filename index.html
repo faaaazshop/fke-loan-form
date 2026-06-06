@@ -1,12 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="ms">
 <head>
-<title>FKE Automobil</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FKE Automobil Enterprise</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding:20px;
+position:relative;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('logo-fkejpg.jpeg') center center no-repeat;
+background-size:70%;
+opacity:0.05;
+filter:blur(8px);
+z-index:-1;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,0,0,.1);
+}
+
+.logo{
+display:block;
+margin:auto;
+width:180px;
+}
+
+h1{
+text-align:center;
+color:#0b3b82;
+margin-top:10px;
+}
+
+h3{
+text-align:center;
+margin-bottom:25px;
+color:#666;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:15px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.upload{
+margin-top:10px;
+}
+
+.section{
+margin-top:20px;
+padding:15px;
+background:#f8f8f8;
+border-radius:12px;
+}
+
+.btn{
+width:100%;
+padding:15px;
+background:#0b3b82;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+margin-top:25px;
+cursor:pointer;
+}
+
+</style>
 </head>
-<body style="font-family:Arial;text-align:center;padding:50px;">
+
+<body>
+
+<div class="container">
+
+<img src="logo-fkejpg.jpeg" class="logo">
+
 <h1>FKE AUTOMOBIL ENTERPRISE</h1>
-<p>Portal Semakan Loan Kereta</p>
-<p>Website sedang dibina.</p>
+<h3>Borang Permohonan Loan Kereta</h3>
+
+<label>Nama Penuh</label>
+<input type="text">
+
+<label>No IC</label>
+<input type="text">
+
+<label>No Telefon</label>
+<input type="text">
+
+<label>Alamat</label>
+<textarea rows="3"></textarea>
+
+<label>Pekerjaan</label>
+<input type="text">
+
+<label>Gaji Bersih</label>
+<input type="number">
+
+<label>Tempoh Loan</label>
+<select>
+<option>5 Tahun</option>
+<option>7 Tahun</option>
+<option>9 Tahun</option>
+</select>
+
+<label>Ansuran Bulanan</label>
+<input type="number">
+
+<div class="section">
+
+<h2>Dokumen Wajib</h2>
+
+<label>IC Depan</label>
+<input type="file">
+
+<label>IC Belakang</label>
+<input type="file">
+
+</div>
+
+<div class="section">
+
+<h2>Dokumen Tambahan</h2>
+
+<label>Lesen Memandu</label>
+<input type="file">
+
+<input type="checkbox">
+Tiada Lesen
+
+<br><br>
+
+<label>Payslip</label>
+<input type="file">
+
+<input type="checkbox">
+Tiada Payslip
+
+<br><br>
+
+<label>Bank Statement</label>
+<input type="file">
+
+<input type="checkbox">
+Tiada Bank Statement
+
+</div>
+
+<button class="btn">
+HANTAR PERMOHONAN
+</button>
+
+</div>
+
 </body>
 </html>
