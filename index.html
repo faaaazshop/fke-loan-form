@@ -4,187 +4,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FKE Automobil Enterprise</title>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{
-background:#f4f6f9;
-padding:20px;
+  margin:0;
+  background:#061334;
+  color:#0f172a;
 }
-
-.container{
-max-width:900px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.1);
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(3,10,40,.72),rgba(3,10,40,.9)),
+    url("logo-fke.jpeg") center 90px/95% no-repeat;
+  filter:blur(5px);
+  opacity:.95;
+  z-index:-2;
 }
-
-.logo{
-text-align:center;
-margin-bottom:20px;
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at center,#0b4bb080,#061334 70%);
+  z-index:-1;
 }
-
-.logo img{
-width:180px;
+.wrap{max-width:980px;margin:auto;padding:32px 16px}
+.logo{display:block;width:150px;margin:0 auto 18px;border-radius:16px;box-shadow:0 15px 40px #0008}
+h1{text-align:center;color:white;margin:0;font-size:38px}
+h1 span{color:#2388ff}
+.sub{text-align:center;color:white;font-weight:700;margin:12px 0 32px}
+.card{background:white;border-radius:16px;padding:28px;box-shadow:0 20px 50px #0007}
+.section{margin-bottom:30px}
+.section h2{font-size:18px;color:#063e8f;border-bottom:2px solid #0b4bb0;padding-bottom:10px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-size:13px;font-weight:700;display:block;margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px}
+textarea{min-height:95px}
+.req{color:red}
+.uploads{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.upload{border:1px solid #d7e0ef;border-radius:12px;padding:14px;text-align:center;background:#fbfdff}
+.upload b{display:block;font-size:13px;margin-bottom:10px}
+.upload input{font-size:12px}
+.btn{width:100%;background:linear-gradient(90deg,#0047b8,#1479ff);color:white;border:0;border-radius:10px;padding:18px;font-size:18px;font-weight:900;cursor:pointer}
+.note{text-align:center;color:#64748b;font-size:13px;margin-top:18px}
+.preview{white-space:pre-wrap;background:#f8fafc;border:1px solid #d7e0ef;border-radius:12px;padding:14px;margin-top:16px;font-size:13px;display:none}
+footer{text-align:center;color:white;margin-top:28px;font-size:13px}
+@media(max-width:800px){
+  h1{font-size:28px}
+  .grid,.grid2,.uploads{grid-template-columns:1fr}
+  .card{padding:20px}
 }
-
-h1{
-text-align:center;
-color:#0d47a1;
-margin-bottom:5px;
-}
-
-.subtitle{
-text-align:center;
-color:#555;
-margin-bottom:25px;
-}
-
-label{
-font-weight:bold;
-display:block;
-margin-top:15px;
-margin-bottom:5px;
-}
-
-input,
-select,
-textarea{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-textarea{
-height:100px;
-}
-
-button{
-width:100%;
-padding:15px;
-margin-top:20px;
-border:none;
-background:#0d47a1;
-color:white;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1565c0;
-}
-
-.footer{
-text-align:center;
-margin-top:20px;
-color:#666;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<div class="wrap">
+  <img src="logo-fke.jpeg" class="logo">
+  <h1><span>FKE</span> AUTOMOBIL ENTERPRISE</h1>
+  <div class="sub">BORANG PERMOHONAN LOAN KERETA</div>
 
-<div class="logo">
-<img src="logo-fke.jpeg" alt="FKE Logo">
-</div>
+  <div class="card">
+    <div class="section">
+      <h2>👤 MAKLUMAT PEMOHON</h2>
+      <div class="grid">
+        <div><label>Nama Penuh <span class="req">*</span></label><input id="nama"></div>
+        <div><label>No. IC <span class="req">*</span></label><input id="ic"></div>
+        <div><label>No. Telefon / WhatsApp <span class="req">*</span></label><input id="phone"></div>
+      </div>
+      <div class="grid">
+        <div><label>Alamat Penuh <span class="req">*</span></label><textarea id="alamat"></textarea></div>
+        <div><label>Pekerjaan <span class="req">*</span></label><select id="kerja"><option>Slip Gaji</option><option>Gaji Cash</option><option>Berniaga Sendiri</option><option>Grab / E-hailing</option></select></div>
+        <div><label>Nama Majikan / Syarikat</label><input id="majikan"></div>
+      </div>
+      <div class="grid">
+        <div><label>Pendapatan Bersih (RM)</label><input id="gaji"></div>
+        <div><label>Tempoh Bekerja</label><input id="tempoh"></div>
+        <div><label>Status CTOS / CCRIS</label><select id="ctos"><option>Tidak Pasti</option><option>Tiada</option><option>CTOS</option><option>CCRIS</option><option>Blacklist</option><option>AKPK</option></select></div>
+      </div>
+    </div>
 
-<h1>FKE AUTOMOBIL ENTERPRISE</h1>
+    <div class="section">
+      <h2>🚗 MAKLUMAT KERETA</h2>
+      <div class="grid">
+        <div><label>Model Kereta <span class="req">*</span></label><input id="model"></div>
+        <div><label>Deposit (RM)</label><input id="deposit"></div>
+        <div><label>Ansuran Bulanan (RM)</label><input id="bulanan"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Tempoh Loan</label><select id="loan"><option>Ikut Kelayakan</option><option>5 Tahun</option><option>7 Tahun</option><option>9 Tahun</option></select></div>
+        <div><label>Jumlah Blacklist Jika Ada</label><input id="blacklist"></div>
+      </div>
+    </div>
 
-<p class="subtitle">
-Borang Permohonan Loan Kereta
-</p>
+    <div class="section">
+      <h2>📄 DOKUMEN SOKONGAN</h2>
+      <div class="uploads">
+        <div class="upload"><b>IC Depan <span class="req">*</span></b><input id="icdepan" type="file"></div>
+        <div class="upload"><b>IC Belakang <span class="req">*</span></b><input id="icbelakang" type="file"></div>
+        <div class="upload"><b>Lesen Memandu</b><input id="lesen" type="file"></div>
+        <div class="upload"><b>Payslip 1</b><input id="slip1" type="file"></div>
+        <div class="upload"><b>Payslip 2</b><input id="slip2" type="file"></div>
+        <div class="upload"><b>Payslip 3</b><input id="slip3" type="file"></div>
+        <div class="upload"><b>Bank Statement</b><input id="bank" type="file"></div>
+        <div class="upload"><b>Bil Utiliti / Lain-lain</b><input id="lain" type="file"></div>
+      </div>
+    </div>
 
-<form>
+    <div class="section">
+      <h2>💬 MAKLUMAT TAMBAHAN</h2>
+      <textarea id="remark" placeholder="Masukkan catatan tambahan di sini..."></textarea>
+    </div>
 
-<label>Nama Penuh</label>
-<input type="text">
+    <button class="btn" onclick="sendWA()">💬 HANTAR PERMOHONAN KE WHATSAPP 017-294 3163</button>
+    <div class="note">Maklumat anda adalah selamat dan digunakan untuk semakan FKE sahaja.</div>
+    <div id="preview" class="preview"></div>
+  </div>
 
-<label>No IC</label>
-<input type="text">
-
-<label>No Telefon</label>
-<input type="text">
-
-<label>Alamat</label>
-<textarea></textarea>
-
-<label>Pekerjaan</label>
-<input type="text">
-
-<label>Nama Majikan</label>
-<input type="text">
-
-<label>Gaji Bersih</label>
-<input type="number">
-
-<label>Model Kereta</label>
-<input type="text">
-
-<label>Deposit</label>
-<input type="number">
-
-<label>Bulanan</label>
-<input type="number">
-
-<label>Status CTOS / CCRIS</label>
-<select>
-<option>Tiada</option>
-<option>CTOS</option>
-<option>CCRIS</option>
-<option>AKPK</option>
-<option>Blacklist</option>
-</select>
-
-<label>Upload IC Depan</label>
-<input type="file">
-
-<label>Upload IC Belakang</label>
-<input type="file">
-
-<label>Upload Lesen</label>
-<input type="file">
-
-<label>Upload Slip Gaji</label>
-<input type="file" multiple>
-
-<label>Catatan Tambahan</label>
-<textarea></textarea>
-
-<button type="button" onclick="submitForm()">
-HANTAR PERMOHONAN
-</button>
-
-</form>
-
-<div class="footer">
-FKE Automobil Enterprise © 2026
-</div>
-
+  <footer>© 2026 FKE Automobil Enterprise</footer>
 </div>
 
 <script>
+function v(id){return document.getElementById(id).value || "-"}
+function f(id){let x=document.getElementById(id);return x.files.length?x.files[0].name:"Belum attach"}
+function sendWA(){
+  let msg=`FKE AUTOMOBIL - PERMOHONAN LOAN KERETA
 
-function submitForm(){
+MAKLUMAT PEMOHON
+Nama: ${v("nama")}
+No IC: ${v("ic")}
+Telefon: ${v("phone")}
+Alamat: ${v("alamat")}
+Pekerjaan: ${v("kerja")}
+Majikan/Syarikat: ${v("majikan")}
+Pendapatan: ${v("gaji")}
+Tempoh Bekerja: ${v("tempoh")}
+Status CTOS/CCRIS: ${v("ctos")}
 
-alert("Permohonan berjaya dihantar kepada FKE Automobil.");
+MAKLUMAT KERETA
+Model: ${v("model")}
+Deposit: ${v("deposit")}
+Bulanan: ${v("bulanan")}
+Tempoh Loan: ${v("loan")}
+Jumlah Blacklist: ${v("blacklist")}
 
+DOKUMEN
+IC Depan: ${f("icdepan")}
+IC Belakang: ${f("icbelakang")}
+Lesen: ${f("lesen")}
+Payslip 1: ${f("slip1")}
+Payslip 2: ${f("slip2")}
+Payslip 3: ${f("slip3")}
+Bank Statement: ${f("bank")}
+Dokumen Lain: ${f("lain")}
+
+CATATAN
+${v("remark")}
+
+Nota: Saya akan attach dokumen dalam WhatsApp selepas mesej ini.`;
+
+  document.getElementById("preview").style.display="block";
+  document.getElementById("preview").textContent=msg;
+  window.open("https://wa.me/60172943163?text="+encodeURIComponent(msg),"_blank");
 }
-
 </script>
 
 </body>
