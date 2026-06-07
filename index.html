@@ -16,9 +16,9 @@ body::before{
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(3,10,40,.72),rgba(3,10,40,.9)),
-    url("logo-fke.jpeg") center 90px/95% no-repeat;
-  filter:blur(5px);
+    linear-gradient(rgba(3,10,40,.55),rgba(3,10,40,.90)),
+    url("logo-fke.jpeg") center center/135% no-repeat;
+  filter:blur(12px);
   opacity:.95;
   z-index:-2;
 }
@@ -26,38 +26,128 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at center,#0b4bb080,#061334 70%);
+  background:
+    radial-gradient(circle at top,#1479ff55,transparent 35%),
+    radial-gradient(circle at bottom,#001a55,transparent 45%);
   z-index:-1;
 }
-.wrap{max-width:980px;margin:auto;padding:32px 16px}
-.logo{display:block;width:150px;margin:0 auto 18px;border-radius:16px;box-shadow:0 15px 40px #0008}
-h1{text-align:center;color:white;margin:0;font-size:38px}
-h1 span{color:#2388ff}
-.sub{text-align:center;color:white;font-weight:700;margin:12px 0 32px}
-.card{background:white;border-radius:16px;padding:28px;box-shadow:0 20px 50px #0007}
-.section{margin-bottom:30px}
-.section h2{font-size:18px;color:#063e8f;border-bottom:2px solid #0b4bb0;padding-bottom:10px;margin-bottom:18px}
+.wrap{max-width:980px;margin:auto;padding:34px 14px}
+.logo{
+  display:block;
+  width:165px;
+  margin:0 auto 18px;
+  border-radius:22px;
+  box-shadow:0 20px 55px #0009;
+}
+h1{
+  text-align:center;
+  color:white;
+  margin:0;
+  font-size:40px;
+  line-height:1.1;
+  letter-spacing:1px;
+}
+h1 span{color:#2292ff}
+.sub{
+  text-align:center;
+  color:white;
+  font-weight:900;
+  margin:14px 0 28px;
+  font-size:21px;
+}
+.card{
+  position:relative;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
+  border-radius:26px;
+  padding:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+.card::before{
+  content:"FKE AUTOMOBIL";
+  position:absolute;
+  top:48%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-28deg);
+  font-size:82px;
+  font-weight:900;
+  color:rgba(0,71,184,.045);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.section{position:relative;margin-bottom:32px}
+.section h2{
+  font-size:20px;
+  color:#063e8f;
+  border-bottom:3px solid #0b4bb0;
+  padding-bottom:12px;
+  margin-bottom:20px;
+}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-label{font-size:13px;font-weight:700;display:block;margin-bottom:6px}
-input,select,textarea{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px}
-textarea{min-height:95px}
+label{font-size:14px;font-weight:800;display:block;margin-bottom:7px}
+input,select,textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #cbd5e1;
+  border-radius:11px;
+  font-size:15px;
+  background:white;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none;
+  border-color:#1479ff;
+  box-shadow:0 0 0 4px #1479ff22;
+}
+textarea{min-height:98px}
 .req{color:red}
 .uploads{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.upload{border:1px solid #d7e0ef;border-radius:12px;padding:14px;text-align:center;background:#fbfdff}
-.upload b{display:block;font-size:13px;margin-bottom:10px}
+.upload{
+  border:1px solid #d7e0ef;
+  border-radius:14px;
+  padding:14px;
+  text-align:center;
+  background:#fbfdff;
+  box-shadow:0 8px 20px #0000000d;
+}
+.upload b{display:block;font-size:13px;margin-bottom:10px;color:#0b3b82}
 .upload input{font-size:12px}
-.btn{width:100%;background:linear-gradient(90deg,#0047b8,#1479ff);color:white;border:0;border-radius:10px;padding:18px;font-size:18px;font-weight:900;cursor:pointer}
+.btn{
+  width:100%;
+  background:linear-gradient(90deg,#0047b8,#1479ff);
+  color:white;
+  border:0;
+  border-radius:14px;
+  padding:20px;
+  font-size:20px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 16px 35px #0047b855;
+}
+.btn:hover{filter:brightness(1.08)}
 .note{text-align:center;color:#64748b;font-size:13px;margin-top:18px}
-.preview{white-space:pre-wrap;background:#f8fafc;border:1px solid #d7e0ef;border-radius:12px;padding:14px;margin-top:16px;font-size:13px;display:none}
+.preview{
+  white-space:pre-wrap;
+  background:#f8fafc;
+  border:1px solid #d7e0ef;
+  border-radius:12px;
+  padding:14px;
+  margin-top:16px;
+  font-size:13px;
+  display:none;
+}
 footer{text-align:center;color:white;margin-top:28px;font-size:13px}
 @media(max-width:800px){
-  h1{font-size:28px}
+  .wrap{padding:28px 10px}
+  h1{font-size:30px}
+  .sub{font-size:17px}
+  .card{padding:22px;border-radius:24px}
+  .card::before{font-size:48px}
   .grid,.grid2,.uploads{grid-template-columns:1fr}
-  .card{padding:20px}
 }
 </style>
-</head>
+
 <body>
 
 <div class="wrap">
