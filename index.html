@@ -2,8 +2,7 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FKE Automobil Enterprise</title>
 
 <style>
@@ -12,61 +11,49 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f7fb;
+background:#f4f6f9;
 padding:20px;
-position:relative;
-overflow-x:hidden;
-}
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url('logo-fke.jpeg') center center no-repeat;
-background-size:70%;
-opacity:0.05;
-filter:blur(8px);
-z-index:-1;
 }
 
 .container{
 max-width:900px;
 margin:auto;
 background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 0 25px rgba(0,0,0,.1);
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
 }
 
 .logo{
-display:block;
-margin:auto;
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo img{
 width:180px;
 }
 
 h1{
 text-align:center;
-color:#0b3b82;
-margin-top:10px;
+color:#0d47a1;
+margin-bottom:5px;
 }
 
-h3{
+.subtitle{
 text-align:center;
+color:#555;
 margin-bottom:25px;
-color:#666;
 }
 
 label{
 font-weight:bold;
 display:block;
 margin-top:15px;
+margin-bottom:5px;
 }
 
 input,
@@ -74,45 +61,55 @@ select,
 textarea{
 width:100%;
 padding:12px;
-margin-top:5px;
 border:1px solid #ccc;
-border-radius:10px;
+border-radius:8px;
 }
 
-.upload{
-margin-top:10px;
+textarea{
+height:100px;
 }
 
-.section{
-margin-top:20px;
-padding:15px;
-background:#f8f8f8;
-border-radius:12px;
-}
-
-.btn{
+button{
 width:100%;
 padding:15px;
-background:#0b3b82;
-color:white;
+margin-top:20px;
 border:none;
-border-radius:10px;
+background:#0d47a1;
+color:white;
 font-size:18px;
-margin-top:25px;
+border-radius:10px;
 cursor:pointer;
 }
 
+button:hover{
+background:#1565c0;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+color:#666;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<img src="logo-fkejpg.jpeg" class="logo">
+<div class="logo">
+<img src="logo-fke.jpeg" alt="FKE Logo">
+</div>
 
 <h1>FKE AUTOMOBIL ENTERPRISE</h1>
-<h3>Borang Permohonan Loan Kereta</h3>
+
+<p class="subtitle">
+Borang Permohonan Loan Kereta
+</p>
+
+<form>
 
 <label>Nama Penuh</label>
 <input type="text">
@@ -124,69 +121,71 @@ cursor:pointer;
 <input type="text">
 
 <label>Alamat</label>
-<textarea rows="3"></textarea>
+<textarea></textarea>
 
 <label>Pekerjaan</label>
+<input type="text">
+
+<label>Nama Majikan</label>
 <input type="text">
 
 <label>Gaji Bersih</label>
 <input type="number">
 
-<label>Tempoh Loan</label>
-<select>
-<option>5 Tahun</option>
-<option>7 Tahun</option>
-<option>9 Tahun</option>
-</select>
+<label>Model Kereta</label>
+<input type="text">
 
-<label>Ansuran Bulanan</label>
+<label>Deposit</label>
 <input type="number">
 
-<div class="section">
+<label>Bulanan</label>
+<input type="number">
 
-<h2>Dokumen Wajib</h2>
+<label>Status CTOS / CCRIS</label>
+<select>
+<option>Tiada</option>
+<option>CTOS</option>
+<option>CCRIS</option>
+<option>AKPK</option>
+<option>Blacklist</option>
+</select>
 
-<label>IC Depan</label>
+<label>Upload IC Depan</label>
 <input type="file">
 
-<label>IC Belakang</label>
+<label>Upload IC Belakang</label>
 <input type="file">
 
-</div>
-
-<div class="section">
-
-<h2>Dokumen Tambahan</h2>
-
-<label>Lesen Memandu</label>
+<label>Upload Lesen</label>
 <input type="file">
 
-<input type="checkbox">
-Tiada Lesen
+<label>Upload Slip Gaji</label>
+<input type="file" multiple>
 
-<br><br>
+<label>Catatan Tambahan</label>
+<textarea></textarea>
 
-<label>Payslip</label>
-<input type="file">
-
-<input type="checkbox">
-Tiada Payslip
-
-<br><br>
-
-<label>Bank Statement</label>
-<input type="file">
-
-<input type="checkbox">
-Tiada Bank Statement
-
-</div>
-
-<button class="btn">
+<button type="button" onclick="submitForm()">
 HANTAR PERMOHONAN
 </button>
 
+</form>
+
+<div class="footer">
+FKE Automobil Enterprise © 2026
 </div>
+
+</div>
+
+<script>
+
+function submitForm(){
+
+alert("Permohonan berjaya dihantar kepada FKE Automobil.");
+
+}
+
+</script>
 
 </body>
 </html>
